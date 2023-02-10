@@ -1,14 +1,12 @@
 import React from "react";
-import HomePage from "./HomePage";
-import { Navbar } from "./Navbar";
+// import HomePage from "./HomePage";
+import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
     <div className="container">
       <Navbar />
-
-      Test
-      {/* <HomePage /> */}
+      
     </div>
   );
 }
