@@ -40,16 +40,6 @@ const HomePage = () => {
             <li><hr className="dropdown-divider"/></li>
             <li><a className="dropdown-item" href="#">Something else here</a></li>
           </ul>
-
-        {/* <h5 onClick={() => setShowDropdown(!showDropdown)}>Settings</h5>
-        {showDropdown && (
-          <div className="dropdown-menu">
-            <a href="#">Account</a>
-            <a href="#" onClick={handleShow}>
-              Sign-in
-            </a>
-          </div>
-        )} */}
       </div>
       <Modal
         show={showModal}

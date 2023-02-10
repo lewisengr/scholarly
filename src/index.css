@@ -39,31 +39,6 @@
   cursor: pointer;
 }
 
-/* .dropdown-menu {
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  background-color: var(--primary-bg);
-  border-radius: var(--border-radius);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  padding: 10px 0;
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-}
-
-.dropdown-menu a {
-  padding: 10px 20px;
-  color: var(--secondary-bg);
-  font-size: 1em;
-  text-align: center;
-}
-
-.dropdown-menu a:hover {
-  background-color: var(--primary-text-color);
-  color: var(--secondary-bg);
-} */
-
 .modal {
   display: flex;
   justify-content: center;
