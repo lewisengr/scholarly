@@ -1,12 +1,10 @@
 import React from "react";
-// import HomePage from "./HomePage";
-import { Navbar } from "./components/Navbar";
+import { Navbar } from "react-bootstrap";
 
 function App() {
   return (
-    <div className="container">
+    <div>
       <Navbar />
-      
     </div>
   );
 }
