@@ -30,7 +30,18 @@ const HomePage = () => {
         </a>
       </div>
       <div className="header-right">
-        <h5 onClick={() => setShowDropdown(!showDropdown)}>Settings</h5>
+
+      <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul className="dropdown-menu">
+            <li><a className="dropdown-item" href="#">Action</a></li>
+            <li><a className="dropdown-item" href="#">Another action</a></li>
+            <li><hr className="dropdown-divider"/></li>
+            <li><a className="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+
+        {/* <h5 onClick={() => setShowDropdown(!showDropdown)}>Settings</h5>
         {showDropdown && (
           <div className="dropdown-menu">
             <a href="#">Account</a>
@@ -38,7 +49,7 @@ const HomePage = () => {
               Sign-in
             </a>
           </div>
-        )}
+        )} */}
       </div>
       <Modal
         show={showModal}

@@ -1,10 +1,14 @@
-import React from 'react';
-import HomePage from './HomePage';
+import React from "react";
+import HomePage from "./HomePage";
+import { Navbar } from "./Navbar";
 
 function App() {
-  return (  
-    <div>
-      <HomePage />
+  return (
+    <div className="container">
+      <Navbar />
+
+      Test
+      {/* <HomePage /> */}
     </div>
   );
 }
