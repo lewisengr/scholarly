@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Modal, Button } from "react-bootstrap";
 import { SignInModal } from "./SignInModal";
 
 export const Navbar = () => {
@@ -63,7 +62,7 @@ export const Navbar = () => {
               >
                 Settings
               </a>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu  dropdown-menu-end">
                 <li>
                   <a className="dropdown-item" href="#" onClick={handleShow}>
                     Sign-In
