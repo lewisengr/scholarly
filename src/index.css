@@ -45,3 +45,12 @@
   align-items: center;
 }
 
+/* .search-form {
+  display:flex;
+  justify-content: flex-end;
+} */
+
+.align-left {
+  margin-left: auto;
+  
+}
