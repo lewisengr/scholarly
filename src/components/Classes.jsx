@@ -1,48 +1,49 @@
-// import React from "react";
-// import { Card, Button } from "react-bootstrap";
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import React from "react";
+import { Container, Row, Col, Card } from "react-bootstrap";
 
-// const Classes = () => {
-//   return (
-//     <CardDeck>
-//       <Card>
-//         <CardImg top width="100%" src="https://placehold.it/500x325" alt="Classroom Image" />
-//         <CardBody>
-//           <CardTitle>Classroom 1</CardTitle>
-//           <CardSubtitle>Description</CardSubtitle>
-//           <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-//           <Button>Go somewhere</Button>
-//         </CardBody>
-//       </Card>
-//       <Card>
-//         <CardImg top width="100%" src="https://placehold.it/500x325" alt="Classroom Image" />
-//         <CardBody>
-//           <CardTitle>Classroom 2</CardTitle>
-//           <CardSubtitle>Description</CardSubtitle>
-//           <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-//           <Button>Go somewhere</Button>
-//         </CardBody>
-//       </Card>
-//     </CardDeck>
-//   );
-// };
-
-// export default Classes;
-
-const Classes = () => {
+export const Classes = () => {
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+    <div style={{}}>
+      <Container className="p-5">
+        <Container className="text-center">
+          <Row className="row-cols-1 row-cols-md-3 g-4">
+            <Col>
+              <Card className="h-100">
+                <Card.Body>
+                  <Card.Title>Advanced</Card.Title>
+                  <Card.Text>Description of advanced classes</Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <small className="text-muted">Last updated 3 mins ago</small>
+                </Card.Footer>
+              </Card>
+            </Col>
+            <Col>
+              <Card className="h-100">
+                <Card.Body>
+                  <Card.Title>Honors</Card.Title>
+                  <Card.Text>Description of honors classes</Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <small className="text-muted">Last updated 3 mins ago</small>
+                </Card.Footer>
+              </Card>
+            </Col>
+            <Col>
+              <Card className="h-100">
+                <Card.Body>
+                  <Card.Title>AP</Card.Title>
+                  <Card.Text>Description of AP classes</Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <small className="text-muted">Last updated 3 mins ago</small>
+                </Card.Footer>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </Container>
+    </div>
   );
 };
 
