@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { SignInModal } from "./SignInModal";
+import scholarlyLogo from "./scholarly.png";
+// import scholarlyLogo from "C:/_git/scholarly/src/components/scholarly.png";
 
 export const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
@@ -14,6 +16,7 @@ export const Navbar = () => {
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
+        <img src={scholarlyLogo} alt="Logo" width="30" height="24" className="d-inline-block align-text-top" />
           Scholarly
         </a>
         <button
