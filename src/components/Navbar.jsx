@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { SignInModal } from "./SignInModal";
-// import scholarlyLogo from "./scholarly.png";
-import scholarlyLogo from "C:/Users/Dylan/Pictures/S2.png";
 import { Dropdown } from "react-bootstrap";
 
 export const Navbar = () => {
@@ -18,7 +16,7 @@ export const Navbar = () => {
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           <img
-            src={scholarlyLogo}
+            src="S2.png"
             alt="Logo"
             width="50"
             height="50"
