@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { SignInModal } from "./SignInModal";
-// import { Dropdown } from "react-bootstrap";
 
 export const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
@@ -38,20 +38,19 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link active"
                 aria-current="page"
-                href="/scholarly/"
+                to="/"
               >
                 Home
-              </a>
+              </Link>
             </li>
-            {/* <Dropdown className="d-inline mx-2"> */}
             <ul className="navbar-nav mb-2 mb-lg-0">
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="/scholarly/Classes"
+                  href="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -60,34 +59,24 @@ export const Navbar = () => {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a className="dropdown-item" href="/scholarly/Advanced">
+                    <Link className="dropdown-item" to="Advanced">
                       Advanced
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/scholarly/Honors">
+                    <Link className="dropdown-item" to="Honors">
                       Honors
-                    </a>
+                    </Link>
                   </li>
                   <li></li>
                   <li>
-                    <a className="dropdown-item" href="/scholarly/AP">
+                    <Link className="dropdown-item" to="AP">
                       AP
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
             </ul>
-            {/* <Dropdown.Menu>
-                <Dropdown.Item href="/scholarly/Advanced">
-                  Advanced
-                </Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item href="/scholarly/Honors">Honors</Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item href="/scholarly/AP">AP</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown> */}
           </ul>
           <form className="d-flex ms-auto" role="search">
             <input
