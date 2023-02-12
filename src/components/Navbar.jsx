@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SignInModal } from "./SignInModal";
-import { Dropdown } from "react-bootstrap";
+// import { Dropdown } from "react-bootstrap";
 
 export const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
@@ -46,12 +46,39 @@ export const Navbar = () => {
                 Home
               </a>
             </li>
-            <Dropdown className="d-inline mx-2">
-              <Dropdown.Toggle id="dropdown-autoclose-true">
-                Classes
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
+            {/* <Dropdown className="d-inline mx-2"> */}
+            <ul className="navbar-nav mb-2 mb-lg-0">
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="/scholarly/Classes"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Classes
+                </a>
+                <ul className="dropdown-menu">
+                  <li>
+                    <a className="dropdown-item" href="/scholarly/Advanced">
+                      Advanced
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="/scholarly/Honors">
+                      Honors
+                    </a>
+                  </li>
+                  <li></li>
+                  <li>
+                    <a className="dropdown-item" href="/scholarly/AP">
+                      AP
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            {/* <Dropdown.Menu>
                 <Dropdown.Item href="/scholarly/Advanced">
                   Advanced
                 </Dropdown.Item>
@@ -60,7 +87,7 @@ export const Navbar = () => {
                 <Dropdown.Divider />
                 <Dropdown.Item href="/scholarly/AP">AP</Dropdown.Item>
               </Dropdown.Menu>
-            </Dropdown>
+            </Dropdown> */}
           </ul>
           <form className="d-flex ms-auto" role="search">
             <input
