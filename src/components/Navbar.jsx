@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { SignInModal } from "./SignInModal";
 // import scholarlyLogo from "./scholarly.png";
-import scholarlyLogo from "C:/Users/Dylan/Pictures/S2.png"; 
+import scholarlyLogo from "C:/Users/Dylan/Pictures/S2.png";
+import { Dropdown } from "react-bootstrap";
 
 export const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
@@ -15,8 +16,14 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-        <img src={scholarlyLogo} alt="Logo" width="50" height="50" className="d-inline-block align-middle" />
+        <a className="navbar-brand" href="/">
+          <img
+            src={scholarlyLogo}
+            alt="Logo"
+            width="50"
+            height="50"
+            className="d-inline-block align-middle"
+          />
           {/* Scholarly */}
         </a>
         <button
@@ -33,15 +40,23 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="/Home">
                 Home
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
+            <Dropdown className="d-inline mx-2">
+              <Dropdown.Toggle id="dropdown-autoclose-true">
                 Classes
-              </a>
-            </li>
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="/Advanced">Advanced</Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item href="/Honors">Honors</Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item href="/AP">AP</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </ul>
           <form className="d-flex" role="search">
             <input
@@ -72,7 +87,7 @@ export const Navbar = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/Account">
                     Account
                   </a>
                 </li>
@@ -80,7 +95,7 @@ export const Navbar = () => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/About">
                     About
                   </a>
                 </li>
@@ -91,7 +106,6 @@ export const Navbar = () => {
       </div>
 
       {showModal && <SignInModal onClose={handleClose} />}
-      
     </nav>
   );
 };
