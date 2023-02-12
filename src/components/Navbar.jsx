@@ -38,7 +38,11 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/scholarly/">
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href="/scholarly/"
+              >
                 Home
               </a>
             </li>
@@ -48,7 +52,9 @@ export const Navbar = () => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="/scholarly/Advanced">Advanced</Dropdown.Item>
+                <Dropdown.Item href="/scholarly/Advanced">
+                  Advanced
+                </Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item href="/scholarly/Honors">Honors</Dropdown.Item>
                 <Dropdown.Divider />
@@ -71,7 +77,7 @@ export const Navbar = () => {
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
-                href="#"
+                href="/scholarly/Account"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -85,7 +91,7 @@ export const Navbar = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/Account">
+                  <a className="dropdown-item" href="/scholarly/Account">
                     Account
                   </a>
                 </li>
@@ -93,7 +99,7 @@ export const Navbar = () => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/About">
+                  <a className="dropdown-item" href="/scholarly/About">
                     About
                   </a>
                 </li>
