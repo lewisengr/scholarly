@@ -38,7 +38,7 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/Home">
+              <a className="nav-link active" aria-current="page" href="/scholarly/">
                 Home
               </a>
             </li>
@@ -56,7 +56,7 @@ export const Navbar = () => {
               </Dropdown.Menu>
             </Dropdown>
           </ul>
-          <form className="d-flex" role="search">
+          <form className="d-flex ms-auto" role="search">
             <input
               className="form-control me-2"
               type="search"
@@ -67,7 +67,7 @@ export const Navbar = () => {
               Search
             </button>
           </form>
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav mb-2 mb-lg-0">
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
