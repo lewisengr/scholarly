@@ -14,7 +14,7 @@ export const Classes = () => {
                   <Card.Text>Description of advanced classes</Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                  <small className="text-muted">Last updated 3 mins ago</small>
+                  <small className="text-muted">Last updated 4 mins ago</small>
                 </Card.Footer>
               </Card>
             </Col>
