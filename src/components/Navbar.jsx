@@ -48,11 +48,11 @@ export const Navbar = () => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="/Advanced">Advanced</Dropdown.Item>
+                <Dropdown.Item href="/scholarly/Advanced">Advanced</Dropdown.Item>
                 <Dropdown.Divider />
-                <Dropdown.Item href="/Honors">Honors</Dropdown.Item>
+                <Dropdown.Item href="/scholarly/Honors">Honors</Dropdown.Item>
                 <Dropdown.Divider />
-                <Dropdown.Item href="/AP">AP</Dropdown.Item>
+                <Dropdown.Item href="/scholarly/AP">AP</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </ul>
