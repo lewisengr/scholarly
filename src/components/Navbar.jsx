@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { SignInModal } from "./SignInModal";
 
 export const Navbar = () => {
@@ -38,45 +38,25 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link
-                className="nav-link active"
-                aria-current="page"
-                to="/"
-              >
+              <NavLink className="nav-link" aria-current="page" to="/">
                 Home
-              </Link>
+              </NavLink>
             </li>
-            <ul className="navbar-nav mb-2 mb-lg-0">
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Classes
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link className="dropdown-item" to="Advanced">
-                      Advanced
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="Honors">
-                      Honors
-                    </Link>
-                  </li>
-                  <li></li>
-                  <li>
-                    <Link className="dropdown-item" to="AP">
-                      AP
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="Advanced">
+                Advanced
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="Honors">
+                Honors
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="AP">
+                AP
+              </NavLink>
+            </li>
           </ul>
           <form className="d-flex ms-auto" role="search">
             <input
