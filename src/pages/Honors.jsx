@@ -1,6 +1,6 @@
 import React from "react";
 
-const Honors = () => {
+export const Honors = () => {
   return (
     <div>
       <h1>Honors Page</h1>
@@ -8,5 +8,3 @@ const Honors = () => {
     </div>
   );
 };
-
-export default Honors;

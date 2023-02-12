@@ -1,10 +1,11 @@
 import React from "react";
 
-export const AP = () => {
+export const About = () => {
   return (
     <div>
-      <h1>AP Page</h1>
+      <h1>About Page</h1>
       <p>This is the AP page.</p>
     </div>
   );
 };
+

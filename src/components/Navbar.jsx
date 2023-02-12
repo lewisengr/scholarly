@@ -14,7 +14,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/scholarly/">
+        <Link className="navbar-brand" to="/">
           <img
             src="S2.png"
             alt="Logo"
@@ -23,7 +23,7 @@ export const Navbar = () => {
             className="d-inline-block align-middle"
           />
           {/* Scholarly */}
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -107,17 +107,17 @@ export const Navbar = () => {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/scholarly/Account">
+                  <Link className="dropdown-item" to="Account">
                     Account
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/scholarly/About">
+                  <Link className="dropdown-item" to="About">
                     About
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>

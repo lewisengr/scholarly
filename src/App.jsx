@@ -121,18 +121,18 @@
 
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Advanced from "./pages/Advanced";
-import Honors from "./pages/Honors";
-import AP from "./pages/AP";
-import Home from "./pages/Home";
+import { About, Account, Home, AP, Advanced, Honors } from "./pages";
 
 function App() {
+
   return (
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="Advanced" element={<Advanced/>} />
       <Route path="Honors" element={<Honors/>} />
       <Route path="AP" element={<AP/>} />
+      <Route path="About" element={<About/>} />
+      <Route path="Account" element={<Account/>} />
     </Routes>
   );
 }
