@@ -1,64 +1,69 @@
 import React from "react";
 import { Card, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const Advanced = () => {
   return (
     <Container className="text-center">
-      {/* STYLING IS 25px AND 10px ------- */}
       <h1 style={{ marginTop: "25px" }}>Advanced Classes</h1>
       <p style={{ marginTop: "10px" }}>This is the ADVANCED page.</p>
       <Card
-        className="p-3"
+        className="p-3 border-primary"
         style={{ width: "100%", maxWidth: "10000px", margin: "0 auto" }}
       >
         <div className="row row-cols-1 row-cols-md-2 g-4">
           <div className="col">
-            <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
+            <div className="card border-info mb-3">
+              <div className="card-header">...</div>
               <div className="card-body">
-                <h5 className="card-title">1</h5>
+                <Link className="card-title" to="Biology">
+                  <h4>Biology</h4>
+                </Link>
                 <p className="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
                 </p>
               </div>
             </div>
           </div>
           <div className="col">
-            <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
+            <div className="card border-info mb-3">
+              <div className="card-header">Header 2</div>
               <div className="card-body">
-                <h5 className="card-title">2</h5>
+                <Link className="card-title" to="Header2">
+                  <h5>Header 2</h5>
+                </Link>
                 <p className="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
                 </p>
               </div>
             </div>
           </div>
           <div className="col">
-            <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
+            <div className="card border-info mb-3">
+              <div className="card-header">Header 3</div>
               <div className="card-body">
-                <h5 className="card-title">3</h5>
+                <Link className="card-title" to="Header3">
+                  <h5>Header 3</h5>
+                </Link>
                 <p className="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content.
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
                 </p>
               </div>
             </div>
           </div>
           <div className="col">
-            <div className="card">
-              <img src="..." className="card-img-top" alt="..." />
+            <div className="card border-info mb-3">
+              <div className="card-header">Header 4</div>
               <div className="card-body">
-                <h5 className="card-title">4</h5>
+                <Link className="card-title" to="Header4">
+                  <h5>Header 4</h5>
+                </Link>
                 <p className="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
                 </p>
               </div>
             </div>
