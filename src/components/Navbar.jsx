@@ -80,11 +80,16 @@ export const Navbar = () => {
               >
                 Settings
               </a>
-              <ul className="dropdown-menu  dropdown-menu-end">
+              <ul className="dropdown-menu dropdown-menu-end">
                 <li>
-                  <a className="dropdown-item" href="#" onClick={handleShow}>
+                  <button
+                    className="btn btn-primary dropdown-item"
+                    href="#"
+                    onClick={handleShow}
+                    disabled
+                  >
                     Sign-In
-                  </a>
+                  </button>
                 </li>
                 <li>
                   <Link className="dropdown-item" to="Account">
