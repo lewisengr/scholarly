@@ -55,7 +55,7 @@ export const Advanced = () => {
             </div>
           </div>
           <div className="col">
-            <div className="card border-info mb-3">
+            <div className="card border-info mb-1">
               <div className="card-header">Header 4</div>
               <div className="card-body">
                 <Link className="card-title" to="Header4">

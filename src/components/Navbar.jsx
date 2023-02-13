@@ -92,9 +92,17 @@ export const Navbar = () => {
                   </button>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="Account">
+                  <button
+                    className="btn btn-primary dropdown-item"
+                    href="#"
+                    onClick={handleShow}
+                    disabled
+                  >
                     Account
-                  </Link>
+                  </button>
+                  {/* <Link className="dropdown-item" to="Account">
+                    Account
+                  </Link> */}
                 </li>
                 <li>
                   <hr className="dropdown-divider" />
