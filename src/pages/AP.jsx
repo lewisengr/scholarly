@@ -2,6 +2,17 @@ import React from "react";
 import { Card, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+// Calculus AB - Ludwig
+// Calculus BC - Ludwig
+// Computer Science A - Musich
+// Computer Science Principles - Musich
+// English Language - Hagan
+// English Literature - Blake
+// Physics C-Mech - Ludwig
+// Statistics - Musich
+// US Government - Haikey
+// US History - Lytle
+
 export const AP = () => {
   return (
     <Container className="text-center">

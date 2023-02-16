@@ -2,6 +2,14 @@ import React from "react";
 import { Card, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+// Algebra 2 - Leverett
+// Chemistry - Swoboda
+// Jud-Christ Phil - Estrada
+// Trig-Precalc - Musich
+// Wind Ens-History - Sapp
+// Wind Ens-Theory - Sapp
+// Honors Anatomy & Physiology - Brackett
+
 export const Honors = () => {
   return (
     <Container className="text-center">
