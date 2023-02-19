@@ -2,33 +2,29 @@ import React from "react";
 import { Card, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-// Calculus AB - Ludwig
-// Calculus BC - Ludwig
-// Computer Science A - Musich
-// Computer Science Principles - Musich
-// English Language - Hagan
-// English Literature - Blake
-// Physics C-Mech - Ludwig
-// Statistics - Musich
-// US Government - Haikey
-// US History - Lytle
-
 export const AP = () => {
   return (
     <Container className="text-center">
-      <h1 style={{ marginTop: "25px" }}>AP Classes</h1>
-      <p style={{ marginTop: "10px" }}>This is the AP page.</p>
+      <h1 style={{ marginTop: "25px" }}>AP</h1>
+      <p style={{ marginTop: "10px" }}>Listed below include all WCHS AP classes.</p>
       <Card
         className="p-3 border-primary"
-        style={{ width: "100%", maxWidth: "10000px", margin: "0 auto" }}
+        style={{
+          resize: "both",
+          overflow: "auto",
+          maxWidth: "10000px",
+          backgroundColor: "#1f1f1fb9",
+          width: "145vh",
+          height: "50vh",
+        }}
       >
         <div className="row row-cols-1 row-cols-md-2 g-4">
           <div className="col">
             <div className="card border-info mb-3">
-              <div className="card-header">...</div>
+              <div className="card-header">Ludwig</div>
               <div className="card-body">
-                <Link className="card-title" to="Biology">
-                  <h4>Biology</h4>
+                <Link className="card-title" to="APCalculusAB">
+                  <h4>Calculus AB</h4>
                 </Link>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
@@ -39,10 +35,10 @@ export const AP = () => {
           </div>
           <div className="col">
             <div className="card border-info mb-3">
-              <div className="card-header">Header 2</div>
+              <div className="card-header">Ludwig</div>
               <div className="card-body">
-                <Link className="card-title" to="Header2">
-                  <h5>Header 2</h5>
+                <Link className="card-title" to="APCalculusBC">
+                  <h4>Calculus BC</h4>
                 </Link>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
@@ -53,10 +49,10 @@ export const AP = () => {
           </div>
           <div className="col">
             <div className="card border-info mb-3">
-              <div className="card-header">Header 3</div>
+              <div className="card-header">Laird Musich</div>
               <div className="card-body">
-                <Link className="card-title" to="Header3">
-                  <h5>Header 3</h5>
+                <Link className="card-title" to="APCompSciA">
+                  <h4>Computer Science A</h4>
                 </Link>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
@@ -67,10 +63,94 @@ export const AP = () => {
           </div>
           <div className="col">
             <div className="card border-info mb-1">
-              <div className="card-header">Header 4</div>
+              <div className="card-header">Laird Musich</div>
               <div className="card-body">
-                <Link className="card-title" to="Header4">
-                  <h5>Header 4</h5>
+                <Link className="card-title" to="APCompSciPri">
+                  <h4>Computer Science Principles</h4>
+                </Link>
+                <p className="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card border-info mb-1">
+              <div className="card-header">Hagan</div>
+              <div className="card-body">
+                <Link className="card-title" to="APLang">
+                  <h4>English Language</h4>
+                </Link>
+                <p className="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card border-info mb-1">
+              <div className="card-header">Blake</div>
+              <div className="card-body">
+                <Link className="card-title" to="APLit">
+                  <h4>English Lit</h4>
+                </Link>
+                <p className="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card border-info mb-1">
+              <div className="card-header">Ludwig</div>
+              <div className="card-body">
+                <Link className="card-title" to="APPhysicsC-Mech">
+                  <h4>Physics C-Mech</h4>
+                </Link>
+                <p className="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card border-info mb-1">
+              <div className="card-header">Laird Musich</div>
+              <div className="card-body">
+                <Link className="card-title" to="APStatistics">
+                  <h4>Statistics</h4>
+                </Link>
+                <p className="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card border-info mb-1">
+              <div className="card-header">Haikey</div>
+              <div className="card-body">
+                <Link className="card-title" to="APUSGov">
+                  <h4>US Government</h4>
+                </Link>
+                <p className="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="card border-info mb-1">
+              <div className="card-header">Lytle</div>
+              <div className="card-body">
+                <Link className="card-title" to="APUSHistory">
+                  <h4>US History</h4>
                 </Link>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up

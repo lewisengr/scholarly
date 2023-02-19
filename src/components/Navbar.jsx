@@ -11,6 +11,8 @@ export const Navbar = () => {
     evt.preventDefault();
   };
 
+  const tabs = ['Home','Advanced','Honors'];
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -58,7 +60,8 @@ export const Navbar = () => {
               </NavLink>
             </li>
           </ul>
-          <form className="d-flex ms-auto" role="search">
+          {/* SEARCH BAR */}
+          {/* <form className="d-flex ms-auto" role="search">
             <input
               className="form-control me-2"
               type="search"
@@ -68,7 +71,7 @@ export const Navbar = () => {
             <button className="btn btn-outline-success" type="submit">
               Search
             </button>
-          </form>
+          </form> */}
           <ul className="navbar-nav mb-2 mb-lg-0">
             <li className="nav-item dropdown">
               <a
