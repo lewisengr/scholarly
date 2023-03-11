@@ -11,7 +11,7 @@ export const Navbar = () => {
     evt.preventDefault();
   };
 
-  const tabs = ['Home','Advanced','Honors'];
+  // const tabs = ["Home", "Advanced", "Honors"];
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -57,6 +57,11 @@ export const Navbar = () => {
             <li className="nav-item">
               <NavLink className="nav-link" to="AP">
                 AP
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="Notes">
+                Notes
               </NavLink>
             </li>
           </ul>

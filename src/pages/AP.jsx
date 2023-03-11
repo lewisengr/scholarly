@@ -6,7 +6,9 @@ export const AP = () => {
   return (
     <Container className="text-center">
       <h1 style={{ marginTop: "25px" }}>AP</h1>
-      <p style={{ marginTop: "10px" }}>Listed below include all WCHS AP classes.</p>
+      <p style={{ marginTop: "10px" }}>
+        Listed below include all WCHS AP classes.
+      </p>
       <Card
         className="p-3 border-primary"
         style={{

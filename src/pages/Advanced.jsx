@@ -6,7 +6,9 @@ export const Advanced = () => {
   return (
     <Container className="text-center">
       <h1 style={{ marginTop: "25px" }}>Advanced</h1>
-      <p style={{ marginTop: "10px" }}>Listed below include all WCHS Advanced classes.</p>
+      <p style={{ marginTop: "10px" }}>
+        Listed below include all WCHS Advanced classes.
+      </p>
       <Card
         className="p-3 border-primary"
         style={{
@@ -117,20 +119,6 @@ export const Advanced = () => {
               </div>
             </div>
           </div>
-          {/* <div className="col">
-            <div className="card border-info mb-1">
-              <div className="card-header">Thompson</div>
-              <div className="card-body">
-                <Link className="card-title" to="Biblical History">
-                  <h4>Biblical History</h4>
-                </Link>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-              </div>
-            </div>
-          </div> */}
           <div className="col">
             <div className="card border-info mb-1">
               <div className="card-header">Blake</div>
