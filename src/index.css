@@ -1,12 +1,12 @@
-:root {
+/* :root { */
    /* COLOR THEME-------------  */
-   --primary-bg: #3e6e74fb;
+   /* --primary-bg: #3e6e74fb;
   --secondary-bg: #fff; 
   --primary-text-color: #222222ea;
   --border-radius: 8px;
   --speed: 500ms; 
 
- } 
+ }  */
 
 /* .header { */
   /* position: fixed; */
@@ -49,3 +49,11 @@
   margin-left: auto;
   
 } */
+
+/* for editor */
+.jodit-container.jodit.jodit_theme_default.jodit_wysiwyg_mode {
+  border: 2px solid #22222296 !important;
+}
+.jodit-container .jodit-workplace {
+  background-color: black !important;
+}
