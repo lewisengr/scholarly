@@ -5,4 +5,4 @@ export * from "./Advanced";
 export * from "./Home";
 export * from "./Honors";
 export * from "./Notes";
-export * from "../components/EditableText";
+// export * from "../components/EditableText";

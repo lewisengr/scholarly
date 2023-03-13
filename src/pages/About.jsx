@@ -8,9 +8,9 @@ export const About = () => {
         <h1 style={{ marginTop: "25px" }}>About Page</h1>
         <p style={{ marginTop: "10px" }}>This is the ABOUT page.</p>
       </Container>
-      <div style={{}}>
+      {/* <div style={{}}>
         <Container className="p-5"></Container>
-      </div>
+      </div> */}
     </div>
   );
 };

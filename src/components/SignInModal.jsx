@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { signInWithGoogle } from "../Firebase";
 
 export const SignInModal = ({ onClose }) => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -65,6 +66,11 @@ export const SignInModal = ({ onClose }) => {
             />
           </div>
         </form>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Button variant="primary" onClick={() => signInWithGoogle()}>
+            Sign In With Google
+          </Button>
+        </div>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={onClose}>
