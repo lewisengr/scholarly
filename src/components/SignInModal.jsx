@@ -53,7 +53,7 @@ export const SignInModal = ({ onClose }) => {
               id="username"
               aria-describedby="emailHelp"
               placeholder="Enter username"
-            />
+            /> 
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
