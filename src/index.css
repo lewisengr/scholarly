@@ -51,9 +51,16 @@
 } */
 
 /* for editor */
-.jodit-container.jodit.jodit_theme_default.jodit_wysiwyg_mode {
+/* .jodit-container.jodit.jodit_theme_default.jodit_wysiwyg_mode {
   border: 2px solid #22222296 !important;
 }
 .jodit-container .jodit-workplace {
   background-color: black !important;
-}
+} */
+/* 
+.jodit_theme_summer {
+  --jd-color-background-default: #417505;
+  --jd-color-border: #474025;
+  --jd-color-panel: #5fd3a2;
+  --jd-color-icon: #8b572a;
+} */
