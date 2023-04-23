@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { SignInModal } from "./SignInModal";
-import { NavDropdown } from "react-bootstrap";
+// import { NavDropdown } from "react-bootstrap";
 
 export const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
@@ -43,7 +43,8 @@ export const Navbar = () => {
                 Home
               </NavLink>
             </li>
-            <li className="nav-item dropdown">
+            {/* For WCS Classes Pages - test - */}
+            {/* <li className="nav-item dropdown">
               <NavDropdown title="Classes" id="basic-nav-dropdown">
                 <NavLink className="dropdown-item" to="Advanced">
                   <NavDropdown.Item href="Advanced">Advanced</NavDropdown.Item>
@@ -55,12 +56,22 @@ export const Navbar = () => {
                   <NavDropdown.Item href="AP">AP</NavDropdown.Item>
                 </NavLink>
               </NavDropdown>
+            </li> */}
+            <li className="nav-item">
+              <NavLink className="nav-link" to="Classes">
+                Classes
+              </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="Notes">
                 Notes
               </NavLink>
             </li>
+            {/* <li className="nav-item">
+              <NavLink className="nav-link" to="_______________">
+                Create Class
+              </NavLink>
+            </li> */}
           </ul>
 
           <ul className="navbar-nav mb-2 mb-lg-0 ms-auto">
