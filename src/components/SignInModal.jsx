@@ -66,9 +66,15 @@ export const SignInModal = ({ onClose }) => {
             />
           </div>
         </form>
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "1rem",
+          }}
+        >
           <Button variant="primary" onClick={() => signInWithGoogle()}>
-            Sign In With Google
+            Sign In with Google
           </Button>
         </div>
       </Modal.Body>

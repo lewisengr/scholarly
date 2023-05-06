@@ -9,19 +9,27 @@ export const Classes = () => {
   const handleCreateClass = (newClass) => {
     setClasses([...classes, newClass]);
     setShowModal(false);
-    // Navigate to a new tab that displays all the classes
+  };
+
+  const onCreate = (newClass) => {
+    handleCreateClass(newClass);
   };
 
   return (
     <div style={{}}>
       <Container className="p-5">
-        <Button variant="primary" onClick={() => setShowModal(true)}>
+        <Button
+          variant="primary"
+          onClick={() => setShowModal(true)}
+          className="w-100 mb-3"
+          style={{ height: "4rem", fontSize: "2rem" }}
+        >
           Create Class
         </Button>
         {showModal && (
           <CreateClassModal
             onClose={() => setShowModal(false)}
-            onCreate={handleCreateClass}
+            onCreate={onCreate}
           />
         )}
         <Container className="text-center">
@@ -32,7 +40,8 @@ export const Classes = () => {
                   <Card.Body>
                     <Card.Title>{classObj.name}</Card.Title>
                     <Card.Text>
-                      Description of {classObj.name} classes
+                      Subject: {classObj.subject} <br />
+                      Difficulty: {classObj.difficulty}
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer>
@@ -49,5 +58,4 @@ export const Classes = () => {
     </div>
   );
 };
-
 export default Classes;

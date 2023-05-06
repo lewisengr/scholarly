@@ -2,14 +2,20 @@ import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
-export const CreateClassModal = ({ onClose }) => {
+export const CreateClassModal = ({ onClose, onCreate }) => {
   const [className, setClassName] = useState("");
   const [subject, setSubject] = useState("");
   const [classDifficulty, setClassDifficulty] = useState("");
 
   const handleCreateClass = () => {
-    // Handle creating class logic here
-    onClose(); // Close the modal
+    const newClass = {
+      id: Date.now(),
+      name: className,
+      subject,
+      difficulty: classDifficulty,
+    };
+    onCreate(newClass);
+    onClose();
   };
 
   return (
