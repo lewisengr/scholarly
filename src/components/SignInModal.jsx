@@ -1,40 +1,48 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import { signInWithGoogle } from "../Firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
-export const SignInModal = ({ onClose }) => {
+export const SignInModal = ({ onClose, setShowModal }) => {
   const [errorMessage, setErrorMessage] = useState("");
 
-  const usernameRef = React.useRef();
-  const passwordRef = React.useRef();
-
-  const handleSignIn = () => {
-    const username = usernameRef.current.value;
-    const password = passwordRef.current.value;
-
-    if (!username) {
-      usernameRef.current.focus();
-    } else if (!password) {
-      passwordRef.current.focus();
-    }
-
-    if (!username || !password) {
-      setErrorMessage("Both username and password are required.");
-      return;
-    }
-
-    setErrorMessage("");
-    setShowModal(false);
+  const handleSignInWithGoogle = () => {
+    signInWithGoogle()
+      .then((user) => {
+        console.log("User signed in with Google:", user);
+        onClose();
+      })
+      .catch((error) => {
+        console.log("Error signing in with Google:", error);
+        setErrorMessage("Error signing in with Google. Please try again.");
+      });
   };
 
-  useEffect(() => {
-    usernameRef.current.focus();
-  }, []);
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const username = e.target.elements.username.value;
+    const password = e.target.elements.password.value;
+
+    signInWithEmailAndPassword(username, password)
+      .then((userCredential) => {
+        console.log("User signed in:", userCredential.user);
+        onClose();
+      })
+      .catch((error) => {
+        console.log("Error signing in:", error);
+        setErrorMessage("Error signing in. Please try again.");
+      });
+  };
+
+  const handleClose = () => {
+    setShowModal(false);
+    onClose();
+  };
 
   return (
     <Modal
       show
-      onHide={onClose}
+      onHide={handleClose}
       dialogClassName="modal-dialog-center"
       className="modal-l"
     >
@@ -43,47 +51,50 @@ export const SignInModal = ({ onClose }) => {
       </Modal.Header>
       <Modal.Body>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-        <form>
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
+        <form onSubmit={handleSignIn}>
+          <div className="mb-3">
+            <label htmlFor="username" className="form-label">
+              Username
+            </label>
             <input
-              ref={usernameRef}
               type="text"
               className="form-control"
               id="username"
-              aria-describedby="emailHelp"
-              placeholder="Enter username"
+              placeholder="Enter your username"
+              required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
             <input
-              ref={passwordRef}
               type="password"
               className="form-control"
               id="password"
-              placeholder="Enter password"
+              placeholder="Enter your password"
+              required
             />
           </div>
+          <div className="text-center">
+            <Button variant="primary" type="submit">
+              Sign-In
+            </Button>
+          </div>
         </form>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "1rem",
-          }}
-        >
-          <Button variant="primary" onClick={() => signInWithGoogle()}>
-            Sign In with Google
-          </Button>
-        </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={onClose}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={handleSignIn}>
-          Sign-In
+        {/* <div className="text-left"> */}
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        {/* </div> */}
+        <Button
+          variant="primary"
+          type="submit"
+          onClick={handleSignInWithGoogle}
+        >
+          Sign-In with Google
         </Button>
       </Modal.Footer>
     </Modal>

@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB0c5w2emBZN0a11tswp_gpicK6GU_U2u8",
@@ -12,18 +13,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 const provider = new GoogleAuthProvider();
 
 const signInWithGoogle = () => {
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      console.log(result);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  return signInWithPopup(auth, provider);
 };
 
-export { signInWithGoogle };
+export { signInWithGoogle, app, auth, db };

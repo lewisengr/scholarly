@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { CreateClassModal } from "../components/CreateClassModal";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../Firebase";
 
 export const Classes = () => {
   const [showModal, setShowModal] = useState(false);
   const [classes, setClasses] = useState([]);
+
+  const fetchClasses = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "classes"));
+      const classList = [];
+      querySnapshot.forEach((doc) => {
+        classList.push({ ...doc.data(), docId: doc.id });
+      });
+      setClasses(classList);
+    } catch (error) {
+      console.log("Error fetching classes:", error);
+    }
+  };
 
   const handleCreateClass = (newClass) => {
     setClasses([...classes, newClass]);
@@ -14,6 +29,10 @@ export const Classes = () => {
   const onCreate = (newClass) => {
     handleCreateClass(newClass);
   };
+
+  useEffect(() => {
+    fetchClasses();
+  }, []);
 
   return (
     <div style={{}}>
@@ -58,4 +77,5 @@ export const Classes = () => {
     </div>
   );
 };
+
 export default Classes;

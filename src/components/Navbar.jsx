@@ -109,8 +109,9 @@ export const Navbar = () => {
           </ul>
         </div>
       </div>
-
-      {showModal && <SignInModal onClose={handleClose} />}
+      {showModal && (
+        <SignInModal onClose={handleClose} setShowModal={setShowModal} />
+      )}
     </nav>
   );
 };

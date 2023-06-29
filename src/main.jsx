@@ -1,13 +1,13 @@
 import React from "react";
+import { HashRouter } from "react-router-dom";
+import { createRoot } from 'react-dom/client';
+import { Navbar } from "./components/Navbar";
 import App from "./App";
 import "./index.css";
-import { createRoot } from "react-dom/client";
-import { HashRouter } from "react-router-dom";
-import { Navbar } from "./components/Navbar";
 
 const root = createRoot(document.getElementById("root"));
 
-root.render(
+const Root = () => (
   <HashRouter>
     <Navbar />
     <div className="container-fluid">
@@ -15,3 +15,5 @@ root.render(
     </div>
   </HashRouter>
 );
+
+root.render(<Root />);

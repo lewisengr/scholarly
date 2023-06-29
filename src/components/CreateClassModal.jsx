@@ -1,21 +1,30 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { collection, addDoc } from "firebase/firestore/lite"; // Remove the duplicate import
+
+import { db } from "../Firebase";
 
 export const CreateClassModal = ({ onClose, onCreate }) => {
   const [className, setClassName] = useState("");
   const [subject, setSubject] = useState("");
   const [classDifficulty, setClassDifficulty] = useState("");
 
-  const handleCreateClass = () => {
+  const handleCreateClass = async () => {
     const newClass = {
       id: Date.now(),
       name: className,
       subject,
       difficulty: classDifficulty,
     };
-    onCreate(newClass);
-    onClose();
+
+    try {
+      const docRef = await addDoc(collection(db, "classes"), newClass);
+      newClass.docId = docRef.id;
+      onCreate(newClass);
+      onClose();
+    } catch (error) {
+      console.log("Error creating class:", error);
+    }
   };
 
   return (
