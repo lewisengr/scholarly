@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { About, Account, Home, Notes, Classes } from "./pages";
+import { About, Account, Home, Notes, Classes } from "./index";
 // import { signInWithGoogle } from "./Firebase";
 
 function App() {

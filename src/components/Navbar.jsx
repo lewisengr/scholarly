@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { SignInModal } from "./SignInModal";
 // import { NavDropdown } from "react-bootstrap";
+// import { useHistory } from "react-router-dom";
 
-export const Navbar = () => {
+export const Navbar = (props) => {
   const [showModal, setShowModal] = useState(false);
+  // const history = useHistory();
 
   const handleClose = () => setShowModal(false);
   const handleShow = (evt) => {
     setShowModal(true);
     evt.preventDefault();
+    // const { history } = props;
+    setShowModal(true);
+    // history(history);
   };
 
   return (
@@ -78,7 +83,7 @@ export const Navbar = () => {
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
-                href="/scholarly/Account"
+                href="#"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -87,10 +92,14 @@ export const Navbar = () => {
               </a>
               <ul className="dropdown-menu dropdown-menu-end">
                 <li>
-                  <div className="dropdown-item">Account</div>
+                  <NavLink className="dropdown-item" to="/Account">
+                    Account
+                  </NavLink>
                 </li>
                 <li>
-                  <div className="dropdown-item">About</div>
+                  <NavLink className="dropdown-item" to="/About">
+                    About
+                  </NavLink>
                 </li>
                 <li>
                   <hr className="dropdown-divider" />

@@ -1,16 +1,14 @@
 import React from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+// import { useAuth } from "../Firebase"; 
 
 export const Account = () => {
+  const { currentUser } = useAuth(); 
+
   return (
-    <div>
-      <Container className="text-center">
-        <h1 style={{ marginTop: "20px" }}>Account Page</h1>
-        <p style={{ marginTop: "10px" }}>This is the Account page.</p>
-      </Container>
-      <div style={{}}>
-        <Container className="p-5"></Container>
-      </div>
-    </div>
+    <Container className="text-center">
+      <h1 style={{ marginTop: "20px" }}>Account Page</h1>
+      <p style={{ marginTop: "10px" }}>Welcome, {currentUser.displayName}!</p>
+    </Container>
   );
 };

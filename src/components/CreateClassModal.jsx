@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
-import { collection, addDoc } from "firebase/firestore/lite"; // Remove the duplicate import
+import { collection, addDoc } from "firebase/firestore/lite";
 
 import { db } from "../Firebase";
 
