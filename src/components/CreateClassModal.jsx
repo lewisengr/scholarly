@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
-import { collection, addDoc } from "firebase/firestore/lite";
-
-import { db } from "../Firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../Firebase.jsx";
+import { Timestamp } from "firebase/firestore";
 
 export const CreateClassModal = ({ onClose, onCreate }) => {
   const [className, setClassName] = useState("");
@@ -15,6 +15,7 @@ export const CreateClassModal = ({ onClose, onCreate }) => {
       name: className,
       subject,
       difficulty: classDifficulty,
+      timestamp: Timestamp.fromDate(new Date()),
     };
 
     try {

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Modal, Button, Toast } from "react-bootstrap";
 // import { useHistory } from "react-router-dom";
-import { signInWithGoogle } from "../Firebase";
+import { signInWithGoogle } from "../Firebase.jsx";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../Firebase.jsx";
 
 export const SignInModal = ({ onClose, setShowModal }) => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -19,7 +20,6 @@ export const SignInModal = ({ onClose, setShowModal }) => {
     signInWithGoogle()
       .then((user) => {
         console.log("User signed in with Google:", user);
-        // setShowModal(true);
         setToastMessage("Successfully signed in with Google.");
         setShowToast(true);
         setTimeout(() => {
@@ -37,10 +37,9 @@ export const SignInModal = ({ onClose, setShowModal }) => {
     const username = e.target.elements.username.value;
     const password = e.target.elements.password.value;
 
-    signInWithEmailAndPassword(username, password)
+    signInWithEmailAndPassword(auth, username, password)
       .then((userCredential) => {
         console.log("User signed in:", userCredential.user);
-        // setShowModal(true);
         setToastMessage("Successfully signed in.");
         setShowToast(true);
         setTimeout(() => {
@@ -124,8 +123,8 @@ export const SignInModal = ({ onClose, setShowModal }) => {
         }}
       >
         <Toast.Header closeButton={false}>
-          <strong className="me-auto">TEST!</strong>
-          <small>11 mins ago</small>
+          <strong className="me-auto">Signed in!</strong>
+          <small>Just now</small>
         </Toast.Header>
         <Toast.Body>{toastMessage}</Toast.Body>
       </Toast>

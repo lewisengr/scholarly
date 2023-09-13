@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { CreateClassModal } from "../components/CreateClassModal";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../Firebase";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { db } from "../Firebase.jsx";
 
 export const Classes = () => {
   const [showModal, setShowModal] = useState(false);
@@ -13,7 +13,11 @@ export const Classes = () => {
       const querySnapshot = await getDocs(collection(db, "classes"));
       const classList = [];
       querySnapshot.forEach((doc) => {
-        classList.push({ ...doc.data(), docId: doc.id });
+        const classData = { ...doc.data(), docId: doc.id };
+        // Check if the "timestamp" field exists in the document
+        if ("timestamp" in classData) {
+          classList.push(classData);
+        }
       });
       setClasses(classList);
     } catch (error) {
@@ -21,8 +25,22 @@ export const Classes = () => {
     }
   };
 
+  const createClass = async (classData) => {
+    try {
+      // Reference to the "classes" collection
+      const classesCollectionRef = collection(db, "classes");
+
+      // Add a new document to the "classes" collection
+      const docRef = await addDoc(classesCollectionRef, classData);
+
+      console.log("Class document created with ID: ", docRef.id);
+    } catch (error) {
+      console.error("Error creating class:", error);
+    }
+  };
+
   const handleCreateClass = (newClass) => {
-    setClasses([...classes, newClass]);
+    createClass(newClass); // Call the createClass function to create a new document
     setShowModal(false);
   };
 
@@ -54,7 +72,7 @@ export const Classes = () => {
         <Container className="text-center">
           <Row className="row-cols-1 row-cols-md-3 g-4">
             {classes.map((classObj) => (
-              <Col key={classObj.id}>
+              <Col key={classObj.docId}>
                 <Card className="h-100">
                   <Card.Body>
                     <Card.Title>{classObj.name}</Card.Title>
@@ -65,7 +83,7 @@ export const Classes = () => {
                   </Card.Body>
                   <Card.Footer>
                     <small className="text-muted">
-                      Last updated 6 mins ago
+                      Created: {new Date(classObj.timestamp).toLocaleString()}
                     </small>
                   </Card.Footer>
                 </Card>
@@ -77,5 +95,3 @@ export const Classes = () => {
     </div>
   );
 };
-
-export default Classes;
