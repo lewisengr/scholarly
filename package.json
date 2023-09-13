@@ -17,7 +17,7 @@
     "react-bootstrap": "^2.8.0",
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.15.0",
-    "reactfire": "^4.2.3"
+    "reactfire": "^4.2.2"
   },
   "devDependencies": {
     "@types/bootstrap": "^5.2.6",
