@@ -46,12 +46,15 @@ export const Classes = () => {
         ...prevClasses,
         { ...classData, docId: docRef.id },
       ]);
+
+      // Close the modal immediately after creating the class
+      setShowModal(false);
     } catch (error) {
       console.error("Error creating class:", error);
     }
   };
 
-  const handleCreateClass = async () => {
+  const handleCreateClass = () => {
     setShowModal(true);
   };
 
@@ -74,16 +77,12 @@ export const Classes = () => {
     }
   };
 
-  const onCreate = (newClass) => {
-    handleCreateClass(newClass);
-  };
-
   useEffect(() => {
     fetchClasses();
   }, []);
 
   return (
-    <div style={{}}>
+    <div>
       <Container className="p-5">
         <Button
           variant="primary"
@@ -96,7 +95,7 @@ export const Classes = () => {
         {showModal && (
           <CreateClassModal
             onClose={() => setShowModal(false)}
-            onCreate={onCreate}
+            onCreate={createClass}
           />
         )}
         <Container className="text-center">

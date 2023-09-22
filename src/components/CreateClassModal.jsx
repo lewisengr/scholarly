@@ -1,29 +1,43 @@
 import React, { useState } from "react";
-import { Modal, Button } from "react-bootstrap";
-import { collection, addDoc } from "firebase/firestore";
+import { Modal, Button, Form } from "react-bootstrap";
+import { serverTimestamp, collection, addDoc } from "firebase/firestore";
 import { db } from "../Firebase.jsx";
-import { Timestamp } from "firebase/firestore";
 
 export const CreateClassModal = ({ onClose, onCreate }) => {
   const [className, setClassName] = useState("");
   const [subject, setSubject] = useState("");
   const [classDifficulty, setClassDifficulty] = useState("");
+  const [error, setError] = useState("");
 
   const handleCreateClass = async () => {
+    // Check if any of the fields are empty
+    if (!className || !subject || !classDifficulty) {
+      setError("Please fill in all the fields.");
+      return;
+    }
+
     const newClass = {
       name: className,
       subject,
       difficulty: classDifficulty,
-      timestamp: Timestamp.fromDate(new Date()),
+      timestamp: serverTimestamp(),
     };
 
     try {
-      const docRef = await addDoc(collection(db, "classes"), newClass);
-      newClass.docId = docRef.id;
-      onCreate(newClass);
+      // Reference to the "classes" collection
+      const classesCollectionRef = collection(db, "classes");
+
+      // Add a new document to the "classes" collection
+      const docRef = await addDoc(classesCollectionRef, newClass);
+
+      console.log("Class document created with ID: ", docRef.id);
+
+      // Call the onCreate function to update the class list in Classes.jsx
+      onCreate({ ...newClass, docId: docRef.id });
+
       onClose();
     } catch (error) {
-      console.log("Error creating class:", error);
+      console.error("Error creating class:", error);
     }
   };
 
@@ -33,39 +47,36 @@ export const CreateClassModal = ({ onClose, onCreate }) => {
         <Modal.Title>Class Details</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <div className="form-group">
-          <label htmlFor="class-name">Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="class-name"
-            placeholder="Enter class title"
-            value={className}
-            onChange={(e) => setClassName(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="subject">Subject</label>
-          <input
-            type="text"
-            className="form-control"
-            id="subject"
-            placeholder="Enter subject"
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="class-difficulty">Difficulty</label>
-          <input
-            type="text"
-            className="form-control"
-            id="class-difficulty"
-            placeholder="Enter difficulty level"
-            value={classDifficulty}
-            onChange={(e) => setClassDifficulty(e.target.value)}
-          />
-        </div>
+        <Form>
+          <Form.Group>
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter class title"
+              value={className}
+              onChange={(e) => setClassName(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Subject</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter subject"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Difficulty</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter difficulty level"
+              value={classDifficulty}
+              onChange={(e) => setClassDifficulty(e.target.value)}
+            />
+          </Form.Group>
+        </Form>
+        {error && <p className="text-danger">{error}</p>}
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={onClose}>
@@ -78,5 +89,3 @@ export const CreateClassModal = ({ onClose, onCreate }) => {
     </Modal>
   );
 };
-
-export default CreateClassModal;
