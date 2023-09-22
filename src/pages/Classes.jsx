@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { CreateClassModal } from "../components/CreateClassModal";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 import { db } from "../Firebase.jsx";
 
 export const Classes = () => {
@@ -34,14 +40,38 @@ export const Classes = () => {
       const docRef = await addDoc(classesCollectionRef, classData);
 
       console.log("Class document created with ID: ", docRef.id);
+
+      // Immediately update the classes state with the newly created class
+      setClasses((prevClasses) => [
+        ...prevClasses,
+        { ...classData, docId: docRef.id },
+      ]);
     } catch (error) {
       console.error("Error creating class:", error);
     }
   };
 
-  const handleCreateClass = (newClass) => {
-    createClass(newClass); // Call the createClass function to create a new document
-    setShowModal(false);
+  const handleCreateClass = async () => {
+    setShowModal(true);
+  };
+
+  const handleDeleteClass = async (docId) => {
+    try {
+      // Reference to the "classes" collection
+      const classesCollectionRef = collection(db, "classes");
+      // Reference to the specific class document
+      const classDocRef = doc(classesCollectionRef, docId);
+      // Delete the class document using deleteDoc
+      await deleteDoc(classDocRef);
+      // Update the classes state to remove the deleted class
+      setClasses((prevClasses) =>
+        prevClasses.filter((classObj) => classObj.docId !== docId)
+      );
+
+      console.log("Class document deleted:", docId);
+    } catch (error) {
+      console.error("Error deleting class:", error);
+    }
   };
 
   const onCreate = (newClass) => {
@@ -57,7 +87,7 @@ export const Classes = () => {
       <Container className="p-5">
         <Button
           variant="primary"
-          onClick={() => setShowModal(true)}
+          onClick={handleCreateClass}
           className="w-100 mb-3"
           style={{ height: "4rem", fontSize: "2rem" }}
         >
@@ -83,8 +113,21 @@ export const Classes = () => {
                   </Card.Body>
                   <Card.Footer>
                     <small className="text-muted">
-                      Created: {new Date(classObj.timestamp).toLocaleString()}
+                      Created:{" "}
+                      {classObj.timestamp
+                        ? new Date(
+                            classObj.timestamp.seconds * 1000
+                          ).toLocaleString()
+                        : "N/A"}
                     </small>
+                    <Button
+                      variant="secondary"
+                      onClick={() => handleDeleteClass(classObj.docId)}
+                      style={{ position: "absolute", bottom: "0", right: "0" }}
+                      size="md"
+                    >
+                      Delete
+                    </Button>
                   </Card.Footer>
                 </Card>
               </Col>

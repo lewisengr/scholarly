@@ -11,7 +11,6 @@ export const CreateClassModal = ({ onClose, onCreate }) => {
 
   const handleCreateClass = async () => {
     const newClass = {
-      id: Date.now(),
       name: className,
       subject,
       difficulty: classDifficulty,
